@@ -1,37 +1,15 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic HTML with CSS</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            color: #333;
-            margin: 20px;
-        }
-
-        h1 {
-            color: #0066cc;
-        }
-
-        p {
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Add more styles as needed */
-    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'polls/styles.css' %}">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to My Website</h1>
-        <p>This is a basic HTML page with some inline CSS styling.</p>
-    </div>
+    <h1>THIS IS A TEST</h1>
 </body>
 </html>
