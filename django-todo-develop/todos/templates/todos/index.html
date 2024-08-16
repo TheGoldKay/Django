@@ -54,6 +54,9 @@
           <a href="{% url 'todos:delete' todo.id %}" title="Delete">
             <i class="far fa-trash-alt"></i>
           </a>
+          <a href="{% url 'todos:delete' todo.id %}" title="Delete">
+            <i class="far fa-edit"></i>
+          </a>
         </div>
         {% endfor %}
       </div>
