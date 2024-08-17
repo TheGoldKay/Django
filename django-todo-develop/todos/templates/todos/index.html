@@ -61,20 +61,9 @@
           <a href="{% url 'todos:delete' todo.id %}" title="Delete">
             <i class="far fa-trash-alt"></i>
           </a>
-          <form style = "display: inline" method="post" action = "{% url 'todos:edit' todo.id %}">
-            {% csrf_token %}
-            <style>
-              .custom-input {
-                padding: 0px;
-                margin: 5px;
-                border: 2px solid #0aa5d4;
-                border-radius: 4px;
-                font-size: 16px;
-              }
-            </style>
-            <input class="custom-input" type="text" id="title" name="title" value="{{ todo.title }}" required>
-          </form>
-
+          <a href="{% url 'todos:delete' todo.id %}" title="Delete">
+            <i class="far fa-edit"></i>
+          </a>
         </div>
         {% endfor %}
       </div>
