@@ -1,2 +1,2 @@
 - [x] Change color of background and container
-- [ ] Create update button to edit task
+- [x] Create update button to edit task
