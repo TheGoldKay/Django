@@ -1,12 +1,14 @@
 {% extends 'todos/base.html' %}
 
+
 {% block title %}
 <title>Todo list</title>
+
 {% endblock %}
 
 {% block content %}
-<div class="container">
 
+<div class="container">
   <!-- title row -->
   <div class="row">
     <div class="offset-md-2 col-lg-9">
@@ -20,6 +22,11 @@
 
   <!-- Add a todo row -->
   <div class="row">
+    <style>
+      .row {
+        color: #42055f;
+      }
+    </style>
     <div class="offset-md-2 col-lg-9">
       <form method="post" action="{% url 'todos:add' %}">
         {% csrf_token %}
