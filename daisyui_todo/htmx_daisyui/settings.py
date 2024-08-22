@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'core',
     'widget_tweaks',
-    'template_partials'
+    'template_partials',
 ]
 
 MIDDLEWARE = [
