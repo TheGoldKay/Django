@@ -40,7 +40,18 @@
         {% for todo in todos %}
             {% partialdef todoitem-partial inline=True %}
                 <tr>
-                    <td>{{ todo.description }}</td>
+                    
+                    <td>
+                        {% if not todo.is_completed %}
+                            <form method="POST" style="display: inline;" hx-post="{% url 'edit-todo' todo.pk %}" hx-target="closest tr" hx-swap="outerHTML">
+                                <div class="form-control" style="display: inline;">
+                                    <input type="text" name="description" value="{{ todo.description }}" class="input input-bordered max-w-xs" required>
+                                </div>
+                            </form>
+                        {% else %}
+                            {{ todo.description }}
+                        {% endif %}
+                    </td>
                     <td>{{ todo.created_at }}</td>
                     <td>{{ todo.is_completed }}</td>
                     <td>
@@ -51,7 +62,7 @@
                                 hx-swap="outerHTML">Mark Complete</button>
                         {% endif %}
 
-                        <button class="btn btn-xs btn-error"
+                        <button class="btn btn-xs btn-error" 
                             hx-delete="{% url 'delete-todo' todo.pk %}"
                             hx-on:delete-todo="this.closest('tr').remove()">Delete</button>
                     </td>

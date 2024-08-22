@@ -45,3 +45,14 @@ def delete_todo(request, pk):
     response = HttpResponse(status=204)
     response['HX-Trigger'] = 'delete-todo'
     return response
+
+@login_required
+@require_http_methods("POST")
+def edit_todo(request, pk):
+    todo = get_object_or_404(Todo, pk=pk, user=request.user)
+    if request.method == "POST":
+        form = TodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            context = {'todo': todo}
+            return render(request, 'index.html#todoitem-partial', context)
