@@ -15,11 +15,11 @@ from haystack.query import SearchQuerySet
 from .util import otp_generator, send_otp_email, validate_otp
 from .models import User, City, Country, Countrylanguage
 
-@login_required
+#@login_required
 def home(request):
     return render(request, "home.html")
 
-@login_required
+#@login_required
 def search(request):
     query = request.GET.get("query", "").strip()
     result = {"cities": [], "countries": [], "languages": []}
@@ -48,7 +48,7 @@ def signup_validate(request):
     last_name = body.get("last_name", "")
     gender = body.get("gender", "female")
     phone_number = body.get("phone_number", "")
-
+    print(User.objects.all())
     if not email:
         result = {"success": False, "message": "email not found"}
         return JsonResponse(result)
@@ -132,12 +132,12 @@ def login_validate(request):
     result = {"success": True, "message": "login succeeded"}
     return JsonResponse(result)
 
-@login_required
+#@login_required
 def c_logout(request):
     logout(request)
     return HttpResponseRedirect("/login")
 
-@login_required
+#@login_required
 def get_country_details(request, country_name):
     country = Country.objects.get(name=country_name)
     result = {"country": country}
