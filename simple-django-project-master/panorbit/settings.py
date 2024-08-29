@@ -25,7 +25,7 @@ SECRET_KEY = '3xb%+*2uex+%1&$@=*+(@^atnm!#tz-n&i5qn$o46jnp&u*2l^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["c9ae666b.ngrok.io", "localhost"]
+ALLOWED_HOSTS = ["c9ae666b.ngrok.io", "localhost",  '127.0.0.1']
 
 
 # Application definition
@@ -87,12 +87,23 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'world',
-        'USER': 'root',
-        'PASSWORD': 'xxxx',
+        'USER': 'jade',
+        'PASSWORD': 'jade',
         'HOST': 'localhost',
         'PORT': '3306',
     }   
 }
+
+
+# Edit email configurations.
+# Search for email configurations
+#EMAIL_USE_TLS = True
+#EMAIL_HOST = 'smtp.gmail.com'
+#EMAIL_HOST_USER = '<your-email>'
+#EMAIL_HOST_PASSWORD = '<your-email-password>'
+#EMAIL_PORT = 587
+
+# save the file
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
